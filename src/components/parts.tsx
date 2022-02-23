@@ -1,8 +1,21 @@
 import React, { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import sanityClient from "../client";
 
+interface IPart {
+  title: string;
+  partName: string;
+  partDesc: string;
+  partHist: string;
+  partNutrition: string;
+  partVideo: string;
+  partImage: { asset: { _id: string; url: string } };
+}
+
 const Parts = () => {
-  const [parts, setParts] = useState<any[]>();
+  const [parts, setParts] = useState<IPart[]>();
+  const specificPart = document.location.pathname.replace("/", "");
+  console.log(specificPart);
 
   useEffect(() => {
     sanityClient
@@ -38,7 +51,16 @@ const Parts = () => {
     
     }`
       )
-      .then((data) => setParts(data))
+      .then((data) =>
+        setParts(
+          specificPart
+            ? data.filter(
+                (i: IPart) =>
+                  i.partName.toLowerCase() === specificPart.toLowerCase()
+              )
+            : data
+        )
+      )
       .catch(console.error);
   }, []);
 
@@ -54,6 +76,10 @@ const Parts = () => {
           <div>
             <h1>{part.partName}</h1>
             <img alt="part of fish" src={part.partImage.asset.url} />
+            <p>{part.partDesc}</p>
+            <p>{part.partHist}</p>
+            <p>{part.partNutrition}</p>
+            <p>{part.partVideo}</p>
           </div>
         ))}
       </div>
