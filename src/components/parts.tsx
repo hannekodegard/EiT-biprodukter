@@ -61,7 +61,7 @@ const Parts = () => {
         )
       )
       .catch(console.error);
-  }, []);
+  }, [specificPart]);
 
   console.log(parts);
   return (
