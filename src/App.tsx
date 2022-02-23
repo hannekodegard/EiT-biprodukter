@@ -1,5 +1,3 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-
 // views
 import Home from "./views/Home";
 

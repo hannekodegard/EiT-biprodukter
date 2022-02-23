@@ -53,7 +53,7 @@ const Parts = () => {
         {parts?.map((part) => (
           <div>
             <h1>{part.partName}</h1>
-            <img src={part.partImage.asset.url} />
+            <img alt="part of fish" src={part.partImage.asset.url} />
           </div>
         ))}
       </div>
