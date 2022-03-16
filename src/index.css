@@ -1,5 +1,11 @@
 @tailwind base;
 @tailwind components;
+
+@font-face {
+  font-family: "Roboto";
+  src: url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@1&family=Titillium+Web:wght@300&family=Zen+Kurenaido&display=swap");
+}
+
 @tailwind utilities;
 
 body {
