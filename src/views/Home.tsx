@@ -22,7 +22,7 @@ const Home = () => {
           >
             <div className="flex items-center w-full justify-evenly">
               <h3 className="text-2xl text-white">Om oss</h3>
-              <img src="Hvit logo.png" />
+              <img src="Hvit logo.png" alt="logo" />
               <h3 className="text-2xl text-white">Oppskrifter</h3>
             </div>
             <div className="relative flex justify-center h-screen lg:w-3/5 md:w-full">

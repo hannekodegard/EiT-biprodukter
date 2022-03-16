@@ -148,7 +148,7 @@ const Parts = ({ partName }: Part) => {
       {part === "Loading" ? <h1>Laster</h1> : <></>}
       {part && typeof part === "object" ? (
         <div className="flex flex-col items-center w-full pt-5">
-          <img src="Svart logo.png" />
+          <img src="Svart logo.png" alt="logo" />
 
           <div className="flex flex-wrap w-full mb-52 lg:justify-center ">
             <div className="w-1/2">
@@ -297,6 +297,7 @@ const Parts = ({ partName }: Part) => {
                 return (
                   <div className="px-5">
                     <img
+                      alt="recipe"
                       className="w-full h-48"
                       src={recipe.recipeImage.asset.url}
                     />
