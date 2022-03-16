@@ -18,6 +18,7 @@ interface IRecipe {
   recipeName: string;
   recipeImage: { asset: { _id: string; url: string } };
   recipeVideo: string;
+  recipePart: string;
   recipeIngredients: {
     ingredientsName: string;
     quantity: string;
@@ -31,6 +32,7 @@ interface Part {
 
 const Parts = ({ partName }: Part) => {
   const [part, setParts] = useState<IPart | string>("Loading");
+  const [recipes, setRecipes] = useState<IRecipe[]>();
 
   const responsive = {
     superLargeDesktop: {
@@ -106,17 +108,11 @@ const Parts = ({ partName }: Part) => {
   useEffect(() => {
     sanityClient
       .fetch(
-        `*[_type == "parts"]{
-      title,
-      partName,
-      partDesc,
-      partHist,
-      partNutrition,
-      partVideo,
-      partRecipes[]{
-       
+        `*[_type == "recipes"]{
+          title,
           recipeName,
           recipeDesc,
+          recipePart,
           recipeIngredients[] {
             ingredientName,
             unit,
@@ -129,32 +125,23 @@ const Parts = ({ partName }: Part) => {
               url
             },
           },
-          recipeVideo,
-        
-      },
-      partImage{
-        asset->{
-          _id,
-          url
-        },
-      },
-    
+          recipeVideo,  
+      
     }`
       )
       .then((data) =>
-        setParts(
-          partName
-            ? data.filter(
-                (i: IPart) =>
-                  i.partName.toLowerCase() === partName.toLowerCase()
-              )[0]
-            : null
+        setRecipes(
+          data.filter(
+            (recipe: IRecipe) =>
+              recipe.recipePart.toUpperCase() === partName.toUpperCase()
+          )
         )
       )
-      .catch(() => setParts(""));
+      .catch(() => setRecipes([]));
   }, [partName]);
 
   console.log(part);
+  console.log(recipes);
 
   return (
     <div className="">
@@ -292,7 +279,8 @@ const Parts = ({ partName }: Part) => {
               ligula. Etiam auctor dictum tortor eu consectetur.
             </p>
           </div>
-          <div className="w-full mb-20 text-">
+          <div className="w-full my-20 text-">
+            <h1>Oppskrifter</h1>
             <Carousel
               swipeable={false}
               draggable={false}
@@ -301,27 +289,21 @@ const Parts = ({ partName }: Part) => {
               ssr={true} // means to render carousel on server-side.
               infinite={true}
               keyBoardControl={true}
-              transitionDuration={500}
               containerClass="carousel-container"
               dotListClass="custom-dot-list-style"
               itemClass="carousel-item-padding-40-px"
             >
-              <div className="px-5">
-                <img src={part.partImage.asset.url} />
-                <h3>Stekt torskeskinn</h3>
-              </div>
-              <div className="px-5">
-                <img src={part.partImage.asset.url} />
-                <h3>Stekt torskeskinn</h3>
-              </div>
-              <div className="px-5">
-                <img src={part.partImage.asset.url} />
-                <h3>Stekt torskeskinn</h3>
-              </div>
-              <div className="px-5">
-                <img src={part.partImage.asset.url} />
-                <h3>Stekt torskeskinn</h3>
-              </div>
+              {recipes?.map((recipe) => {
+                return (
+                  <div className="px-5">
+                    <img
+                      className="w-full h-48"
+                      src={recipe.recipeImage.asset.url}
+                    />
+                    <h3>{recipe.recipeName}</h3>
+                  </div>
+                );
+              })}
             </Carousel>
           </div>
         </div>

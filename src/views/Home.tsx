@@ -41,7 +41,7 @@ const Home = () => {
                   className="cursor-pointer h-2/5 w-1/3 absolute left-[40%] bottom-1/2"
                 ></a>
                 <a
-                  href="torskeskinnet"
+                  href="torskeskinn"
                   className="cursor-pointer h-2/5 w-1/3 absolute left-[40%] top-1/2"
                 ></a>
                 <a
