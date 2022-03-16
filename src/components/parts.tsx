@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import sanityClient from "../client";
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
 interface IPart {
   title: string;
@@ -12,12 +13,44 @@ interface IPart {
   partImage: { asset: { _id: string; url: string } };
 }
 
+interface IRecipe {
+  title: string;
+  recipeName: string;
+  recipeImage: { asset: { _id: string; url: string } };
+  recipeVideo: string;
+  recipeIngredients: {
+    ingredientsName: string;
+    quantity: string;
+    unit: string;
+  };
+}
+
 interface Part {
   partName: string;
 }
 
 const Parts = ({ partName }: Part) => {
   const [part, setParts] = useState<IPart | string>("Loading");
+
+  const responsive = {
+    superLargeDesktop: {
+      // the naming can be any, depends on you.
+      breakpoint: { max: 4000, min: 3000 },
+      items: 5,
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 3,
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 2,
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1,
+    },
+  };
 
   useEffect(() => {
     sanityClient
@@ -29,12 +62,16 @@ const Parts = ({ partName }: Part) => {
       partHist,
       partNutrition,
       partVideo,
-      partRecipes{
-        asset->{
-          _id,
+      partRecipes[]{
+       
           recipeName,
           recipeDesc,
-          recipeIngredients,
+          recipeIngredients[] {
+            ingredientName,
+            unit,
+            quantity
+          }
+        ,
           recipeImage{
             asset->{
               _id,
@@ -42,7 +79,7 @@ const Parts = ({ partName }: Part) => {
             },
           },
           recipeVideo,
-        }
+        
       },
       partImage{
         asset->{
@@ -66,7 +103,8 @@ const Parts = ({ partName }: Part) => {
       .catch(() => setParts(""));
   }, [partName]);
 
-  console.log(partName);
+  console.log(part);
+
   return (
     <div className="">
       {part === "Loading" ? <h1>Laster</h1> : <></>}
@@ -86,7 +124,7 @@ const Parts = ({ partName }: Part) => {
                 <path
                   d="M22.905 35.5888C87.2836 43.6771 108.031 63.7568 124.664 120.175C164.636 202.958 203.568 189.706 270.494 175.141C347.55 180.44 360.828 204.161 377.344 251.44"
                   stroke="white"
-                  stroke-width="20"
+                  strokeWidth="20"
                 />
                 <path
                   d="M39.2961 22.982L32.9212 50.6957L29.3047 49.8639L35.6796 22.1501L39.2961 22.982ZM48.2041 25.031L47.5123 28.0384L26.0988 23.1128L26.7906 20.1054L48.2041 25.031Z"
@@ -202,6 +240,38 @@ const Parts = ({ partName }: Part) => {
               condimentum. Integer vitae mi in metus vulputate euismod vitae ut
               ligula. Etiam auctor dictum tortor eu consectetur.
             </p>
+          </div>
+          <div className="w-full mb-20 text-">
+            <Carousel
+              swipeable={false}
+              draggable={false}
+              showDots={true}
+              responsive={responsive}
+              ssr={true} // means to render carousel on server-side.
+              infinite={true}
+              keyBoardControl={true}
+              transitionDuration={500}
+              containerClass="carousel-container"
+              dotListClass="custom-dot-list-style"
+              itemClass="carousel-item-padding-40-px"
+            >
+              <div className="px-5">
+                <img src={part.partImage.asset.url} />
+                <h3>Stekt torskeskinn</h3>
+              </div>
+              <div className="px-5">
+                <img src={part.partImage.asset.url} />
+                <h3>Stekt torskeskinn</h3>
+              </div>
+              <div className="px-5">
+                <img src={part.partImage.asset.url} />
+                <h3>Stekt torskeskinn</h3>
+              </div>
+              <div className="px-5">
+                <img src={part.partImage.asset.url} />
+                <h3>Stekt torskeskinn</h3>
+              </div>
+            </Carousel>
           </div>
         </div>
       ) : part !== "Loading" ? (
