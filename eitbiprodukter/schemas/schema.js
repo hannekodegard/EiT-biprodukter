@@ -7,6 +7,7 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 import parts from "./parts"
 import recipes from './recipes'
 import ingredients from './ingredients'
+import about from './about'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -19,5 +20,6 @@ export default createSchema({
     parts,
     recipes,
     ingredients,
+    about
   ]),
 })
