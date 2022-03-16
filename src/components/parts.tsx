@@ -103,6 +103,57 @@ const Parts = ({ partName }: Part) => {
       .catch(() => setParts(""));
   }, [partName]);
 
+  useEffect(() => {
+    sanityClient
+      .fetch(
+        `*[_type == "parts"]{
+      title,
+      partName,
+      partDesc,
+      partHist,
+      partNutrition,
+      partVideo,
+      partRecipes[]{
+       
+          recipeName,
+          recipeDesc,
+          recipeIngredients[] {
+            ingredientName,
+            unit,
+            quantity
+          }
+        ,
+          recipeImage{
+            asset->{
+              _id,
+              url
+            },
+          },
+          recipeVideo,
+        
+      },
+      partImage{
+        asset->{
+          _id,
+          url
+        },
+      },
+    
+    }`
+      )
+      .then((data) =>
+        setParts(
+          partName
+            ? data.filter(
+                (i: IPart) =>
+                  i.partName.toLowerCase() === partName.toLowerCase()
+              )[0]
+            : null
+        )
+      )
+      .catch(() => setParts(""));
+  }, [partName]);
+
   console.log(part);
 
   return (
