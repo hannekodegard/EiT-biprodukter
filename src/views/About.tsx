@@ -39,6 +39,7 @@ const About = () => {
             <div>
               <div className="relative w-80">
                 <img
+                  alt="team member"
                   className="w-80 h-80 object-cover"
                   src={`${person.name.split(" ")[0]}.png`}
                 />
