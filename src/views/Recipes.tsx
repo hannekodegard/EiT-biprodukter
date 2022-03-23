@@ -64,10 +64,10 @@ const Recipes = () => {
           ? recipes.map((recipe) => {
               return (
                 <div>
-                  <div className="w-80">
+                  <div className="max-w-80">
                     <img
                       alt="team member"
-                      className="w-80 h-80 object-cover"
+                      className="w-full max-w-80 h-80 object-cover"
                       src={recipe?.recipeImage[0].asset.url}
                     />
                     <div className="bg-blue-100  text-center">
