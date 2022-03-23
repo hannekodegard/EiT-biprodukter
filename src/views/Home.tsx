@@ -21,7 +21,9 @@ const Home = () => {
             }}
           >
             <div className="flex items-center w-full justify-evenly">
-              <h3 className="text-2xl text-white">Om oss</h3>
+              <a href="about-us" className="text-2xl text-white">
+                Om oss
+              </a>
               <img src="Hvit logo.png" alt="logo" />
               <h3 className="text-2xl text-white">Oppskrifter</h3>
             </div>
@@ -30,8 +32,25 @@ const Home = () => {
                 <img
                   src="Torsk hel Lauritzen og Westhammer_700x383.png"
                   alt="interactive fish"
-                  className="h-full min-w-full z-2"
+                  className="relative h-full min-w-full z-2"
                 />
+
+                <img
+                  src="Melke.png"
+                  alt="interactive fish"
+                  className="absolute top-0 left-0 h-full min-w-full z-3"
+                />
+                <img
+                  src="Svømmeblære.png"
+                  alt="interactive fish"
+                  className="absolute top-0 left-0 h-full min-w-full z-3"
+                />
+                <img
+                  src="Lever.png"
+                  alt="interactive fish"
+                  className="absolute top-0 left-0 h-full min-w-full z-3"
+                />
+
                 <a
                   className="absolute left-0 z-10 w-2/5 cursor-pointer h-2/5 bottom-1/4"
                   href="torskehalen"
