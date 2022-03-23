@@ -38,17 +38,22 @@ const About = () => {
       </div>
 
       <div>
-        <p style={styles.aboutInfo}> Velkommen, dette er oss. Vi er 7 studenter som skal skape fremtidens mat ved hjelp av biprodukter. Dette gjør vi gjennom EiT, et prosjekt med fokus på tverrfaglig samarbeid.</p>
+        <p style={styles.aboutInfo}>
+          {" "}
+          Velkommen, dette er oss. Vi er 7 studenter som skal skape fremtidens
+          mat ved hjelp av biprodukter. Dette gjør vi gjennom EiT, et prosjekt
+          med fokus på tverrfaglig samarbeid.
+        </p>
       </div>
-      
+
       <div className="grid mt-10 sm:grid-cols-2 lg:grid-cols-3 md:grid-cols-3 gap-4">
         {data.map((person) => {
           return (
             <div>
-              <div className="relative w-80">
+              <div className="relative max-w-80">
                 <img
                   alt="team member"
-                  className="w-80 h-80 object-cover"
+                  className="w-full max-w-80 h-80 object-cover"
                   src={`${person.name.split(" ")[0]}.png`}
                 />
                 <div className="bg-blue-100  text-center">
@@ -73,8 +78,8 @@ const About = () => {
 const styles = {
   aboutInfo: {
     width: 700,
-    padding: '5em 0em 5em 0em',
-    textAlign: 'center',
+    padding: "5em 0em 5em 0em",
+    textAlign: "center",
   },
 } as const;
 
