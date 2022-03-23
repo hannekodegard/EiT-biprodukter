@@ -5,7 +5,7 @@ export default {
     fields: [
       {name: 'ingredientName', type: 'string', title: 'Navn'},
       {name: 'unit', type: 'string', title: 'Enhet'},
-      {name: 'quantity', type: 'string', title: 'Mål'}
+      {name: 'quantity', type: 'string', title: 'Antall'}
     ]
   }
 

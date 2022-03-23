@@ -1,8 +1,8 @@
 export default {
-    title: 'About',
+    title: 'Om oss',
     name: 'about',
     type: 'document',
     fields: [
-      {name: 'aboutInformation', type: 'string', title: 'Om oss'}
+        {name: 'aboutInformation', type: 'string', title: 'Om oss'}
     ]
-  }
+}

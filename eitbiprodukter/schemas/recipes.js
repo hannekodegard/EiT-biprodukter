@@ -16,7 +16,21 @@ export default {
         type: 'text',  
         validation: Rule => Rule.required()
       },
+
+      {
+        title: 'Fremgangsmåte',
+        name: 'recipeToDo',
+        type: 'text',  
+        validation: Rule => Rule.required()
+      },
     
+      {
+        title: 'Stykningsdel',
+        name: 'recipePart',
+        type: 'string',
+        validation: Rule => Rule.required()
+      },
+
       {
         title: 'Ingredienser',
         name: 'recipeIngredients',

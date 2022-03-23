@@ -43,11 +43,6 @@ export default {
           hotspot: true,
         },
       },
-      {
-        title: 'Oppskrifter',
-        name: 'partRecipes',
-        type: 'array',
-        of: [{type: 'recipes'}]
-      },
+      
     ]
   }
