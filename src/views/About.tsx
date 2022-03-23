@@ -33,6 +33,10 @@ const About = () => {
         <h3 className="text-2xl text-black">Oppskrifter</h3>
       </div>
 
+      <div>
+        <p style={styles.aboutInfo}> Velkommen, dette er oss. Vi er 7 studenter som skal skape fremtidens mat ved hjelp av biprodukter. Dette gjør vi gjennom EiT, et prosjekt med fokus på tverrfaglig samarbeid.</p>
+      </div>
+      
       <div className="grid mt-10 sm:grid-cols-2 lg:grid-cols-3 md:grid-cols-3 gap-4">
         {data.map((person) => {
           return (
@@ -61,5 +65,13 @@ const About = () => {
     </div>
   );
 };
+
+const styles = {
+  aboutInfo: {
+    width: 700,
+    padding: '5em 0em 5em 0em',
+    textAlign: 'center',
+  },
+} as const;
 
 export default About;
