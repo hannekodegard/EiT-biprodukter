@@ -14,10 +14,6 @@ interface IRecipe {
   };
 }
 
-interface IImage {
-  imageInfo: { asset: { _id: string; url: string } };
-}
-
 const Recipes = () => {
   const [recipes, setRecipes] = useState<IRecipe[]>([]);
   useEffect(() => {
