@@ -26,11 +26,15 @@ const About = () => {
   return (
     <div className="flex flex-col items-center justify-center">
       <div className="flex items-center justify-around w-full mt-5">
-        <a href="about-us" className="text-2xl text-black">
+        <a href="about-us" className="text-2xl text-blue-600">
           Om oss
         </a>
-        <img src="Svart logo.png" alt="logo" />
-        <h3 className="text-2xl text-black">Oppskrifter</h3>
+        <a href="/">
+          <img src="Svart logo.png" alt="logo" />
+        </a>
+        <a href="/recipes" className="text-2xl text-black">
+          Oppskrifter
+        </a>
       </div>
 
       <div className="grid mt-10 sm:grid-cols-2 lg:grid-cols-3 md:grid-cols-3 gap-4">
@@ -50,7 +54,7 @@ const About = () => {
                   <p className="text-blue-500 font-bold">{person.age}</p>
                   <p className="text-black">{person.studies}</p>
                 </div>
-                <p className="p-5 absolute top-0 h-full w-full bg-blue-400 opacity-0 text-white flex hover:opacity-80 justify-center overflow-y-auto">
+                <p className="p-5 h-80 absolute top-0 w-full bg-blue-400 opacity-0 text-white flex hover:opacity-80 justify-center overflow-y-auto">
                   {person.about}
                 </p>
               </div>
