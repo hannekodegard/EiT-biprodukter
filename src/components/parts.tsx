@@ -92,7 +92,8 @@ const Parts = ({ partName }: Part) => {
     
     }`
       )
-      .then((data) =>
+      .then((data) => {
+        console.log(data);
         setParts(
           partName
             ? data.filter(
@@ -100,8 +101,8 @@ const Parts = ({ partName }: Part) => {
                   i.partName.toLowerCase() === partName.toLowerCase()
               )[0]
             : null
-        )
-      )
+        );
+      })
       .catch(() => setParts(""));
   }, [partName]);
 
@@ -306,6 +307,15 @@ const Parts = ({ partName }: Part) => {
                 );
               })}
             </Carousel>
+            {/* {recipes?.map((recipe) => {
+              return (
+                <iframe
+                  title="recipe"
+                  src={recipe.recipeVideo}
+                  allowFullScreen
+                />
+              );
+            })} */}
           </div>
         </div>
       ) : part !== "Loading" ? (
