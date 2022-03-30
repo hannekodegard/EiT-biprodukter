@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import sanityClient from "../client";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import Fisker from "../Group 1.png";
 
 interface IPart {
   title: string;
@@ -94,11 +95,16 @@ const Parts = ({ partName }: Part) => {
       )
       .then((data) => {
         console.log(data);
+        console.log(partName);
+
+        data.map((i: IPart) => console.log(i.partName.toLowerCase()));
+
         setParts(
           partName
             ? data.filter(
                 (i: IPart) =>
-                  i.partName.toLowerCase() === partName.toLowerCase()
+                  i.partName.toLowerCase() ===
+                  partName.toLowerCase().replace(" ", "")
               )[0]
             : null
         );
@@ -106,6 +112,7 @@ const Parts = ({ partName }: Part) => {
       .catch(() => setParts(""));
   }, [partName]);
 
+  console.log(part);
   useEffect(() => {
     sanityClient
       .fetch(
@@ -134,22 +141,20 @@ const Parts = ({ partName }: Part) => {
         setRecipes(
           data.filter(
             (recipe: IRecipe) =>
-              recipe.recipePart.toUpperCase() === partName.toUpperCase()
+              recipe.recipePart.toUpperCase() ===
+              partName.toLowerCase().replace(" ", "")
           )
         )
       )
       .catch(() => setRecipes([]));
   }, [partName]);
 
-  console.log(part);
-  console.log(recipes);
-
   return (
     <div className="">
       {part === "Loading" ? <h1>Laster</h1> : <></>}
       {part && typeof part === "object" ? (
         <div className="flex flex-col items-center w-full pt-5">
-          <img src="Svart logo.png" alt="logo" />
+          <img src="../Svart logo.png" alt="logo" />
 
           <div className="flex flex-wrap w-full mb-52 lg:justify-center ">
             <div className="w-1/2">
@@ -209,7 +214,7 @@ const Parts = ({ partName }: Part) => {
 
               <img
                 alt="part of fish"
-                src="torskehode.png"
+                src={Fisker}
                 className="w-full max-w-lg mt-0 "
               />
             </div>

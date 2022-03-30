@@ -47,7 +47,7 @@ const Recipes = () => {
   console.log(recipes);
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center pb-10">
       <div className="flex items-center justify-around w-full mt-5 mb-10">
         <a href="about-us" className="text-2xl text-black">
           Om oss
@@ -63,15 +63,15 @@ const Recipes = () => {
         {recipes.length !== 0 && recipes
           ? recipes.map((recipe) => {
               return (
-                <div>
-                  <div className="max-w-80">
+                <div className="bg-blue-100 p-2">
+                  <div className="max-w-80 padding-3 bg-blue-100">
                     <img
                       alt="team member"
                       className="w-full max-w-80 h-80 object-cover"
                       src={recipe?.recipeImage[0].asset.url}
                     />
-                    <div className="bg-blue-100  text-center">
-                      <h3 className="text-blue-600 font-bold uppercase">
+                    <div className="text-center">
+                      <h3 className="text-blue-600 text-lg font-bold uppercase h-10 flex items-center justify-center">
                         {recipe.recipeName}
                       </h3>
                     </div>

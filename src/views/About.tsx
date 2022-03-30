@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Papa from "papaparse";
+import Fisk from "../Fisk.png";
 
 interface IPerson {
   name: string;
@@ -24,7 +25,7 @@ const About = () => {
   console.log(data);
 
   return (
-    <div className="flex flex-col items-center justify-center">
+    <div className="flex flex-col items-center justify-center px-48">
       <div className="flex items-center justify-around w-full mt-5">
         <a href="about-us" className="text-2xl text-blue-600">
           Om oss
@@ -37,8 +38,9 @@ const About = () => {
         </a>
       </div>
 
-      <div>
-        <p style={styles.aboutInfo}>
+      <div className="relative py-10 my-10">
+        <img src={Fisk} alt="fisk" />
+        <p style={styles.aboutInfo} className="absolute top-0 text-2xl">
           {" "}
           Velkommen, dette er oss. Vi er 7 studenter som skal skape fremtidens
           mat ved hjelp av biprodukter. Dette gjør vi gjennom EiT, et prosjekt
@@ -46,27 +48,30 @@ const About = () => {
         </p>
       </div>
 
-      <div className="grid mt-10 sm:grid-cols-2 lg:grid-cols-3 md:grid-cols-3 gap-4">
-        {data.map((person) => {
+      <div className="">
+        {data.map((person, i) => {
+          console.log(person.name.split(" ")[0]);
           return (
-            <div>
-              <div className="relative max-w-80">
-                <img
-                  alt="team member"
-                  className="w-full max-w-80 h-80 object-cover"
-                  src={`${person.name.split(" ")[0]}.png`}
-                />
-                <div className="bg-blue-100  text-center">
-                  <h3 className="text-blue-600 font-bold uppercase">
-                    {person.name}
-                  </h3>
-                  <p className="text-blue-500 font-bold">{person.age}</p>
-                  <p className="text-black">{person.studies}</p>
+            <div className="flex mb-36">
+              {i % 2 === 0 ? (
+                <div className="flex">
+                  <img
+                    className="h-56 w-56 object-cover mr-9"
+                    src={person.name.split(" ")[0] + ".png"}
+                    alt={person.name}
+                  />
+                  <p className="text-2xl">{person.about}</p>
                 </div>
-                <p className="p-5 h-80 absolute top-0 w-full bg-blue-400 opacity-0 text-white flex hover:opacity-80 justify-center overflow-y-auto">
-                  {person.about}
-                </p>
-              </div>
+              ) : (
+                <div className="flex w-full justify-end">
+                  <p className="text-2xl">{person.about}</p>
+                  <img
+                    src={person.name.split(" ")[0] + ".png"}
+                    alt={person.name}
+                    className="h-56 w-56 object-cover ml-9"
+                  />
+                </div>
+              )}
             </div>
           );
         })}
