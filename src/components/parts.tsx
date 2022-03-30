@@ -3,6 +3,7 @@ import sanityClient from "../client";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import Fisker from "../Group 1.png";
+import { useLocation } from "react-router-dom";
 
 interface IPart {
   title: string;
@@ -31,7 +32,16 @@ interface Part {
   partName: string;
 }
 
-const Parts = ({ partName }: Part) => {
+function useQuery() {
+  const { search } = useLocation();
+
+  return React.useMemo(() => new URLSearchParams(search), [search]);
+}
+
+const Parts = () => {
+  let query = useQuery();
+  console.log(query.get("part"));
+  const partName = query.get("part") || "";
   const [part, setParts] = useState<IPart | string>("Loading");
   const [recipes, setRecipes] = useState<IRecipe[]>();
 

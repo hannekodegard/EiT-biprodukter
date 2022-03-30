@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <div className="w-full font-sans">
       {specificPart.length !== 0 ? (
-        <Parts partName={specificPart} />
+        <Parts />
       ) : (
         <div className="h-screen">
           {/* <h1 className="text-white text-8xl">Den allsidige torsken</h1> */}
@@ -55,24 +55,24 @@ const Home = () => {
 
                 <a
                   className="absolute left-0 z-10 w-2/5 cursor-pointer h-2/5 bottom-1/4"
-                  href="torskehalen"
+                  href="/parts?part=torskehale"
                 >
                   {""}
                 </a>
                 <a
-                  href="torskeryggen"
+                  href="/parts?part=torskerygg"
                   className="cursor-pointer h-2/5 w-1/3 absolute left-[40%] bottom-1/2"
                 >
                   {""}
                 </a>
                 <a
-                  href="torskeskinn"
+                  href="/parts?part=torskeskinn"
                   className="cursor-pointer h-2/5 w-1/3 absolute left-[40%] top-1/2"
                 >
                   {""}
                 </a>
                 <a
-                  href="torskehode"
+                  href="/parts?part=torskehode"
                   className="cursor-pointer h-1/2 w-1/4 absolute left-[75%]  bottom-1/4"
                 >
                   {""}

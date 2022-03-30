@@ -13,15 +13,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route
-          path="/part/:part"
-          element={
-            <Parts
-              partName="torskeskinn
-        "
-            />
-          }
-        />
+        <Route path="/parts" element={<Parts />} />
         <Route path="/about-us" element={<About />} />
         <Route path="/recipes" element={<Recipes />} />
       </Routes>
