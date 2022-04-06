@@ -28,6 +28,9 @@ const Home = () => {
               <a href="/recipes" className="text-2xl text-white">
                 Oppskrifter
               </a>
+              <a href="/recipe" className="text-2xl text-white">
+                Oppskrift
+              </a>
             </div>
             <div className="relative flex justify-center h-screen lg:w-3/5 md:w-full">
               <div className="">
