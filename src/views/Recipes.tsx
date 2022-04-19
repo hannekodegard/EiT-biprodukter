@@ -59,24 +59,26 @@ const Recipes = () => {
           Oppskrifter
         </a>
       </div>
-      <div className="grid gap-4 grid-cols-3">
+      <div className="grid grid-cols-3 gap-4">
         {recipes.length !== 0 && recipes
-          ? recipes.map((recipe) => {
+          ? recipes.map((recipe, i) => {
               return (
-                <div className="bg-blue-100 p-2">
-                  <div className="max-w-80 padding-3 bg-blue-100">
-                    <img
-                      alt="team member"
-                      className="w-full max-w-80 h-80 object-cover"
-                      src={recipe?.recipeImage[0].asset.url}
-                    />
-                    <div className="text-center">
-                      <h3 className="text-blue-600 text-lg font-bold uppercase h-10 flex items-center justify-center">
-                        {recipe.recipeName}
-                      </h3>
+                <a href={`/recipe?code=${i}`}>
+                  <div className="p-2 bg-blue-100">
+                    <div className="bg-blue-100 max-w-80 padding-3">
+                      <img
+                        alt="team member"
+                        className="object-cover w-full max-w-80 h-80"
+                        src={recipe?.recipeImage[0].asset.url}
+                      />
+                      <div className="text-center">
+                        <h3 className="flex items-center justify-center h-10 text-lg font-bold text-blue-600 uppercase">
+                          {recipe.recipeName}
+                        </h3>
+                      </div>
                     </div>
                   </div>
-                </div>
+                </a>
               );
             })
           : null}
