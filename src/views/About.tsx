@@ -56,19 +56,20 @@ const About = () => {
               {i % 2 === 0 ? (
                 <div className="flex">
                   <img
-                    className="h-56 w-56 object-cover mr-9"
-                    src={person.name.split(" ")[0] + ".png"}
+                    className="object-cover w-56 h-56 mr-9"
+                    src={person.name.split(" ")[0] + ".jpeg"}
                     alt={person.name}
                   />
                   <p className="text-2xl">{person.about}</p>
                 </div>
               ) : (
-                <div className="flex w-full justify-end">
+                <div className="flex justify-end w-full">
                   <p className="text-2xl">{person.about}</p>
+                  {console.log(person.name.split(" ")[0] + ".jpeg")}
                   <img
-                    src={person.name.split(" ")[0] + ".png"}
+                    src={person.name.split(" ")[0] + ".jpeg"}
                     alt={person.name}
-                    className="h-56 w-56 object-cover ml-9"
+                    className="object-cover w-56 h-56 ml-9"
                   />
                 </div>
               )}

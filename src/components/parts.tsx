@@ -237,63 +237,15 @@ const Parts = () => {
           </div>
           <div className="left-0 w-4/5">
             <h1 className="text-5xl mb-14">{"Hva er " + part.partName}</h1>
-            <p>
-              {part.partDesc}
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a
-              molestie augue. Fusce mattis at tortor vel lobortis. Sed efficitur
-              venenatis mi non dignissim. Fusce lobortis ex eget magna faucibus,
-              ac egestas nisl tempor. Curabitur eleifend velit felis, ultricies
-              finibus leo imperdiet sed. Aliquam hendrerit arcu vitae mi cursus,
-              nec maximus felis sagittis. Nulla aliquet risus nec lectus
-              euismod, ac volutpat nisl dictum. Suspendisse eu fringilla nulla,
-              eget pharetra odio. Proin bibendum nunc vel nisl aliquet, quis
-              maximus erat faucibus. Aenean eleifend bibendum ante, nec eleifend
-              augue posuere elementum. Vivamus mauris metus, cursus non risus
-              quis, gravida consectetur risus. Praesent in lectus eu ante
-              efficitur mattis. Etiam accumsan arcu eget tortor rhoncus
-              condimentum. Integer vitae mi in metus vulputate euismod vitae ut
-              ligula. Etiam auctor dictum tortor eu consectetur.
-            </p>
+            <p>{part.partDesc}</p>
           </div>
           <div className="self-end w-4/5">
             <h1 className="mt-40 text-5xl mb-14">Bruksområde før og nå</h1>
-            <p>
-              {part.partHist} + Lorem ipsum dolor sit amet, consectetur
-              adipiscing elit. Donec a molestie augue. Fusce mattis at tortor
-              vel lobortis. Sed efficitur venenatis mi non dignissim. Fusce
-              lobortis ex eget magna faucibus, ac egestas nisl tempor. Curabitur
-              eleifend velit felis, ultricies finibus leo imperdiet sed. Aliquam
-              hendrerit arcu vitae mi cursus, nec maximus felis sagittis. Nulla
-              aliquet risus nec lectus euismod, ac volutpat nisl dictum.
-              Suspendisse eu fringilla nulla, eget pharetra odio. Proin bibendum
-              nunc vel nisl aliquet, quis maximus erat faucibus. Aenean eleifend
-              bibendum ante, nec eleifend augue posuere elementum. Vivamus
-              mauris metus, cursus non risus quis, gravida consectetur risus.
-              Praesent in lectus eu ante efficitur mattis. Etiam accumsan arcu
-              eget tortor rhoncus condimentum. Integer vitae mi in metus
-              vulputate euismod vitae ut ligula. Etiam auctor dictum tortor eu
-              consectetur.
-            </p>
+            <p>{part.partHist}</p>
           </div>
           <div className="left-0 w-4/5">
             <h1 className="mt-40 text-5xl mb-14">Næringsinnhold</h1>
-            <p>
-              {part.partNutrition}
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a
-              molestie augue. Fusce mattis at tortor vel lobortis. Sed efficitur
-              venenatis mi non dignissim. Fusce lobortis ex eget magna faucibus,
-              ac egestas nisl tempor. Curabitur eleifend velit felis, ultricies
-              finibus leo imperdiet sed. Aliquam hendrerit arcu vitae mi cursus,
-              nec maximus felis sagittis. Nulla aliquet risus nec lectus
-              euismod, ac volutpat nisl dictum. Suspendisse eu fringilla nulla,
-              eget pharetra odio. Proin bibendum nunc vel nisl aliquet, quis
-              maximus erat faucibus. Aenean eleifend bibendum ante, nec eleifend
-              augue posuere elementum. Vivamus mauris metus, cursus non risus
-              quis, gravida consectetur risus. Praesent in lectus eu ante
-              efficitur mattis. Etiam accumsan arcu eget tortor rhoncus
-              condimentum. Integer vitae mi in metus vulputate euismod vitae ut
-              ligula. Etiam auctor dictum tortor eu consectetur.
-            </p>
+            <p>{part.partNutrition}</p>
           </div>
           <div className="w-full my-20 text-">
             <h1>Oppskrifter</h1>
