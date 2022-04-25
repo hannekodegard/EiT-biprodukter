@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Parts from "../components/parts";
 
 const Home = () => {
   const specificPart = document.location.pathname.replace("/", "");
+  const [inside, setInside] = useState<boolean>(false);
   return (
     <div className="w-full font-sans">
       {specificPart.length !== 0 ? (
@@ -28,9 +29,6 @@ const Home = () => {
               <a href="/recipes" className="text-2xl text-white">
                 Oppskrifter
               </a>
-              <a href="/recipe" className="text-2xl text-white">
-                Oppskrift
-              </a>
             </div>
             <div className="relative flex justify-center h-screen lg:w-3/5 md:w-full">
               <div className="">
@@ -40,21 +38,25 @@ const Home = () => {
                   className="relative h-full min-w-full z-2"
                 />
 
-                <img
-                  src="Melke.png"
-                  alt="interactive fish"
-                  className="absolute top-0 left-0 h-full min-w-full z-3"
-                />
-                <img
-                  src="Svømmeblære.png"
-                  alt="interactive fish"
-                  className="absolute top-0 left-0 h-full min-w-full z-3"
-                />
-                <img
-                  src="Lever.png"
-                  alt="interactive fish"
-                  className="absolute top-0 left-0 h-full min-w-full z-3"
-                />
+                {inside ? (
+                  <div>
+                    <img
+                      src="Melke.png"
+                      alt="interactive fish"
+                      className="absolute top-0 left-0 h-full min-w-full z-3"
+                    />
+                    <img
+                      src="Lever.png"
+                      alt="interactive fish"
+                      className="absolute top-0 left-0 h-full min-w-full z-3"
+                    />
+                    <img
+                      src="Svømmeblære.png"
+                      alt="interactive fish"
+                      className="absolute top-0 left-0 h-full min-w-full z-3"
+                    />
+                  </div>
+                ) : null}
 
                 <a
                   className="absolute left-0 z-10 w-2/5 cursor-pointer h-2/5 bottom-1/4"
@@ -80,7 +82,39 @@ const Home = () => {
                 >
                   {""}
                 </a>
+
+                {inside ? (
+                  <div className="w-100" onClick={(e) => e.stopPropagation()}>
+                    <a
+                      href="/parts?part=svømmeblære"
+                      className="z-20 absolute top-[40%] bottom-[53%] right-[36%] left-[38%]"
+                    >
+                      {""}
+                    </a>
+                    <a
+                      href="/parts?part=torskemelke"
+                      className="z-20 absolute top-[46%] bottom-[46%] right-[36%] left-[38%]"
+                    >
+                      {""}
+                    </a>
+                    <a
+                      href="/parts?part=torskelever"
+                      className="z-20 absolute top-[47%] bottom-[43%] right-[33%] left-[59%]"
+                    >
+                      {""}
+                    </a>
+                  </div>
+                ) : null}
               </div>
+            </div>
+            <div
+              onClick={() => setInside(!inside)}
+              className="relative flex items-center justify-center w-full"
+            >
+              <div className="relative z-10 w-48 py-5 mx-auto my-10 text-xl text-center text-gray-800 uppercase bg-blue-500 cursor-pointer">
+                <h1>{inside ? "Skjul involler" : "Vis involler"}</h1>
+              </div>
+              <div className="absolute z-0 w-48 h-20 mx-auto bg-gray-600 rotate-1"></div>
             </div>
           </div>
         </div>

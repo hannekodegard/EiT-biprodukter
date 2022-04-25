@@ -25,7 +25,7 @@ const About = () => {
   console.log(data);
 
   return (
-    <div className="flex flex-col items-center justify-center px-48">
+    <div className="flex flex-col items-center justify-center px-48 bg-blue-100">
       <div className="flex items-center justify-around w-full mt-5">
         <a href="about-us" className="text-2xl text-blue-600">
           Om oss
