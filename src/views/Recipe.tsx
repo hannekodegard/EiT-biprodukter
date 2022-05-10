@@ -110,15 +110,17 @@ const Recipe = () => {
             </div>
           </div>
 
-          <div className="divide-blue-600">
-            <h3 className="w-full text-3xl text-center">FREMGANGSMÅTE:</h3>
-            <hr className="w-3/5 mx-auto mb-5" />
-            <iframe
-              title="video"
-              className="w-full h-[40rem] mb-16"
-              src={codHead.recipeVideo}
-            />
-          </div>
+          {codHead.recipeVideo ? (
+            <div className="divide-blue-600">
+              <h3 className="w-full text-3xl text-center">FREMGANGSMÅTE:</h3>
+              <hr className="w-3/5 mx-auto mb-5" />
+              <iframe
+                title="video"
+                className="w-full h-[40rem] mb-16"
+                src={codHead.recipeVideo}
+              />
+            </div>
+          ) : null}
         </div>
       ) : null}
     </div>
